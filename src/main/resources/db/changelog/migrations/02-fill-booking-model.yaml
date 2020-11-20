@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-fill-booking-model
+      author: Alexandr_Shinkevich
+      changes:
+        - sqlFile:
+            stripComments: true
+            path: db/changelog/migrations/02-fill-booking-model.sql

@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: Movies booking service
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        jdbc.lob.non_contextual_creation: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+    hibernate:
+      use-new-id-generator-mappings: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    primary:
+      url: jdbc:postgresql://localhost:5491/movies_booking_service_db?socketTimeout=30
+      schema: public
+      username: docker
+      password: SQL
+      poolName: primary-connection-pool
+      leakDetectionThreshold: 60000
+      maxPoolSize: 5
+    liquibase:
+      url: jdbc:postgresql://localhost:5491/movies_booking_service_db?socketTimeout=30
+      schema: public
+      username: docker
+      password: SQL
+      poolName: liquibase-connection-pool
+      leakDetectionThreshold: 60000
+      minIdle: 0
+      maxPoolSize: 1
+
+
+logging:
+  level:
+    root: INFO
+    com.booking.movies: INFO
+    org.hibernate.SQL: ERROR
+    org.hibernate.pretty: ERROR
+    org.hibernate.type: ERROR
+    org.hibernate.type.descriptor.sql: ERROR
+    com.zaxxer.hikari.pool.HikariPool: ERROR
+    io.swagger.models.parameters.AbstractSerializableParameter: ERROR

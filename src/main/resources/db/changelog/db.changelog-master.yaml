@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/migrations/01-create-booking-model.yaml
+  - include:
+      file: db/changelog/migrations/02-fill-booking-model.yaml

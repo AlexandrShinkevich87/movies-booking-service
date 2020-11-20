@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  movies-booking-service-database:
+    image: postgres:10.5
+    ports:
+      - "5491:5432"
+    env_file: database-variables.env
+    volumes:
+      - data-volume:/var/lib/postgresql/movies-booking-service-data
+
+  movies-booking-service:
+    image: movies-booking-service
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.profiles.active=docker
+
+volumes:
+  data-volume:
